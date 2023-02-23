@@ -1,3 +1,4 @@
+
 <?php
 
 use App\Http\Controllers\Controlador;
@@ -14,23 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/formulario', function () {
-    return view('form');
-}) ->name ('route_form');
-
-Route::get('/inicio', [Controlador::class, 'teste']); 
-
-Route::get('/cadastro', function () {
-    return view('cadastro');
-})->name ('route_cadastro');
-
-Route::get('/login', function () {
-    return view('login');
-})->name('route_login');
+Route::get('/formulario', [Controlador :: class, 'formulario'])->name('route_formulario');
 
 
-//->name ('route_inicio');
-//function () {
- //   return view('index');
+Route::get('/inicio', [Controlador::class, 'inicio'])->name('route_inicio'); 
 
+
+Route::get('/login',[Controlador :: class, 'login'])->name('route_login');
+
+
+Route::get('/cadastro',[Controlador ::class, 'cadastro'])->name('route_cadastro');
+Route::post('/cadastro-usuario',[Controlador::class,'cadastroUsuario'])->name('cadastro-usuario');
+
+
+Route::post('/login',[Controlador::class, 'loginUsuario'])->name('login-usuario');
+Route::get('/dashboard', [Controlador::class,'dashboard']);
 
